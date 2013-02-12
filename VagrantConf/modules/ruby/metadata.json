@@ -1,0 +1,30 @@
+{
+  "types": [
+
+  ],
+  "project_page": "https://github.com/puppetlabs/puppetlabs-ruby",
+  "version": "0.0.2",
+  "checksums": {
+    "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+    "manifests/params.pp": "ab282de0876f38d6c67881306a3f4b27",
+    "LICENSE": "b3f8a01d8699078d82e8c3c992307517",
+    "tests/params.pp": "624af9411bd668264baef475bcc9e54b",
+    "README.md": "f31b89ff8fa96488bc76955b081a5f10",
+    "Rakefile": "0254db5d3fc38c67a2c160d7296a24f8",
+    "manifests/dev.pp": "ee5276a5772eee8c68204c4463842f03",
+    "tests/init.pp": "c3c821d5d8b70fcc6ecbd0b15ed53109",
+    "tests/dev.pp": "4d74853324ca33cc13995f7819948f83",
+    "spec/classes/ruby_spec.rb": "29b3f413f91aacd85bd4b33a095b6825",
+    "Modulefile": "f4def9fdca48beb00377cce8a7a3b4d7",
+    "manifests/init.pp": "45eb7bdae97d4b202061ff274fa48522"
+  },
+  "dependencies": [
+
+  ],
+  "summary": "Puppet Labs Ruby Module",
+  "source": "https://github.com/puppetlabs/puppetlabs-ruby",
+  "description": "Ruby Module for Puppet",
+  "author": "Puppet Labs",
+  "name": "puppetlabs-ruby",
+  "license": "Apache License 2.0"
+}

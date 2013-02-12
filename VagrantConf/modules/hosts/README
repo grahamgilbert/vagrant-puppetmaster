@@ -1,0 +1,17 @@
+# Class: hosts
+#   This module manages hosts
+#
+# Definition:
+#   -
+#
+# Parameters:
+#   -
+#
+# Actions:
+#   Installs the hosts
+#
+# Requires:
+#   -
+#
+# Sample Usage:
+#   -

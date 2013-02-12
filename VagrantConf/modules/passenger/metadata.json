@@ -1,0 +1,34 @@
+{
+  "description": "Module for Passenger configuration",
+  "checksums": {
+    "templates/passenger-conf.erb": "e5a78e0fe9f8b38897d9cc28461c8d34",
+    "manifests/params.pp": "9df06803d26db0609ce5992d52e9c207",
+    "templates/passenger-load.erb": "632ab635ec86643d92ad14cd80265418",
+    "templates/passenger-enabled.erb": "4552134135b1b12fbacadd235ef6feaf",
+    "LICENSE": "4509849dc8e58abcb92d4e1faacb588b",
+    "README.md": "b3cee172bcd9ee1df97977b13ee7cd8f",
+    "tests/init.pp": "ed442a24364697ff755ec0399fb4a0a5",
+    "Modulefile": "d934ea2d55ae3b680d009de8528c2f55",
+    "manifests/init.pp": "8b64af36504e6086b68222c13cee1486"
+  },
+  "summary": "Puppet module for Passenger",
+  "source": "git://github.com/puppetlabs/puppetlabs-passenger.git",
+  "dependencies": [
+    {
+      "version_requirement": ">= 0.0.3",
+      "name": "puppetlabs/apache"
+    },
+    {
+      "version_requirement": ">= 0.0.1",
+      "name": "puppetlabs/ruby"
+    }
+  ],
+  "project_page": "https://github.com/puppetlabs/puppetlabs-passenger",
+  "author": "puppetlabs",
+  "types": [
+
+  ],
+  "version": "0.0.4",
+  "name": "puppetlabs-passenger",
+  "license": "Apache 2.0"
+}

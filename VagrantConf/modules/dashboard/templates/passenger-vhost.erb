@@ -1,0 +1,18 @@
+Listen <%= dashboard_port %>
+
+<VirtualHost *:<%= dashboard_port %>>
+  ServerName <%= name %>
+  DocumentRoot <%= docroot %>
+  RailsBaseURI <%= rails_base_uri %>
+  <Directory <%= docroot %>>
+    Options None
+    AllowOverride AuthConfig
+    Order allow,deny
+    allow from all
+  </Directory>
+  ErrorLog /var/log/<%= scope.lookupvar("apache::params::apache_name") %>/<%= name %>_error.log
+  LogLevel warn
+  CustomLog /var/log/<%= scope.lookupvar("apache::params::apache_name") %>/<%= name %>_access.log combined
+  ServerSignature On
+</VirtualHost>
+

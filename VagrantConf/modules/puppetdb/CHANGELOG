@@ -1,0 +1,106 @@
+1.1.4
+========
+
+This is a bugfix release, mostly around fixing backward-compatibility for the
+deprecated `manage_redhat_firewall` parameter.  It wasn't actually entirely
+backwards-compatible in the 1.1.3 release.
+
+2013-01-17 - Chris Price <chris@puppetlabs.com>
+ * Fix backward compatibility of `manage_redhat_firewall` parameter (de20b44)
+
+2013-01-16 - Chris Price <chris@puppetlabs.com>
+ * Fix deprecation warnings around manage_redhat_firewall (448f8bc)
+
+1.1.3
+========
+
+This is mostly a maintenance release, to update the module dependencies to newer
+versions in preparation for some new features.  This release does include some nice
+additions around the ability to set the listen address for the HTTP port on Jetty
+and manage the firewall for that port.  Thanks very much to Drew Blessing for those
+submissions!
+
+2013-01-15 - Chris Price <chris@puppetlabs.com>
+ * Update Modulefile for 1.1.3 release (updates dependencies
+   on postgres and inifile modules to the latest versions) (76bfd9e)
+
+2012-12-19 - Garrett Honeycutt <garrett@puppetlabs.com>
+ * (#18228) updates README for style (fd2e990)
+
+2012-11-29 - Drew Blessing <Drew.Blessing@Buckle.com>
+ * 17594 - Fixes suggested by cprice-puppet (0cf9632)
+
+2012-11-14 - Drew Blessing <Drew.Blessing@Buckle.com>
+ * Adjust examples in tests to include new port params (0afc276)
+
+2012-11-13 - Drew Blessing <Drew.Blessing@Buckle.com>
+ * 17594 - PuppetDB - Add ability to set standard host listen address and open firewall
+
+1.1.2
+========
+
+2012-10-26 - Chris Price <chris@puppetlabs.com> (1.1.2)
+ * 1.1.2 release
+
+2012-10-26 - Chris Price <chris@puppetlabs.com>
+ * Add some more missing `inherit`s for `puppetdb::params` (a72cc7c)
+
+2012-10-26 - Chris Price <chris@puppetlabs.com> (1.1.2)
+ * 1.1.1 release
+
+2012-10-26 - Chris Price <chris@puppetlabs.com> (1.1.1)
+ * Add missing `inherit` for `puppetdb::params` (ea9b379)
+
+2012-10-24 - Chris Price <chris@puppetlabs.com>
+ * 1.1.0 release
+
+2012-10-24 - Chris Price <chris@puppetlabs.com> (1.1.0)
+ * Update postgres dependency to puppetlabs/postgresql (bea79b4)
+
+2012-10-17 - Reid Vandewiele <reid@puppetlabs.com> (1.1.0)
+ * Fix embedded db setup in Puppet Enterprise (bf0ab45)
+
+2012-10-17 - Chris Price <chris@puppetlabs.com> (1.1.0)
+ * Update manifests/master/config.pp (b119a30)
+
+2012-10-16 - Chris Price <chris@puppetlabs.com> (1.1.0)
+ * Make puppetdb startup timeout configurable (783b595)
+
+2012-10-01 - Hunter Haugen <h.haugen@gmail.com> (1.1.0)
+ * Add condition to detect PE installations and provide different parameters (63f1c52)
+
+2012-10-01 - Hunter Haugen <h.haugen@gmail.com> (1.1.0)
+ * Add example manifest code for pe puppet master (a598edc)
+
+2012-10-01 - Chris Price <chris@puppetlabs.com> (1.1.0)
+ * Update comments and docs w/rt PE params (b5df5d9)
+
+2012-10-01 - Hunter Haugen <h.haugen@gmail.com> (1.1.0)
+ * Adding pe_puppetdb tests class (850e039)
+
+2012-09-28 - Hunter Haugen <h.haugen@gmail.com> (1.1.0)
+ * Add parameters to enable usage of enterprise versions of PuppetDB (df6f7cc)
+
+2012-09-23 - Chris Price <chris@puppetlabs.com>
+ * 1.0.3 release
+
+2012-09-23 - Chris Price <chris@puppetlabs.com>
+ * Add a parameter for restarting puppet master (179b337)
+
+2012-09-21 - Chris Price <chris@puppetlabs.com>
+ * 1.0.2 release
+
+2012-09-21 - Chris Price <chris@puppetlabs.com>
+ * Pass 'manage_redhat_firewall' param through to postgres (f21740b)
+
+2012-09-20 - Chris Price <chris@puppetlabs.com>
+ * 1.0.1 release
+
+2012-09-20 - Garrett Honeycutt <garrett@puppetlabs.com>
+ * complies with style guide (1aab5d9)
+
+2012-09-19 - Chris Price <chris@puppetlabs.com>
+ * Fix invalid subname in database.ini (be683b7)
+
+2011-09-18 Chris Price <chris@puppetlabs.com> - 1.0.0
+* Initial 1.0.0 release

@@ -1,0 +1,10 @@
+# Puppet-Dashboard logs:
+<%= dashboard_root%>/log/production.log {
+  daily
+  missingok
+  rotate 7
+  compress
+  notifempty
+  copytruncate
+}
+

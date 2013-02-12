@@ -1,0 +1,24 @@
+{
+  "name": "dhoppe-hosts",
+  "author": "Dennis Hoppe",
+  "description": "Hosts Module for Debian, Ubuntu",
+  "license": "GPLv2",
+  "project_page": "http://github.com/dhoppe/puppet-hosts",
+  "source": "git://github.com/dhoppe/puppet-hosts",
+  "summary": "Hosts Module",
+  "version": "0.0.4",
+  "checksums": {
+    "Modulefile": "e3c8b24d94d452369735df7fcb5f975c",
+    "README": "5736cfde77a5a4151f8320bcfeabd24a",
+    "manifests/init.pp": "0412a59c668adda075d91301500647a1",
+    "manifests/params.pp": "0d7a16fc34ca7b0c31f74fd2ef29057c",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "templates/lenny/etc/hosts.erb": "05cab89eb53f3719f3d38a9f7b9bdb82",
+    "templates/maverick/etc/hosts.erb": "2a20b9b365716a331fec1322ed9eb2e1",
+    "templates/natty/etc/hosts.erb": "53f4f19c0065acf1ca3190d73944cc21",
+    "templates/squeeze/etc/hosts.erb": "53f4f19c0065acf1ca3190d73944cc21",
+    "tests/init.pp": "3fb600c02067be473090d5e82e777b55"
+  },
+  "dependencies": []
+}

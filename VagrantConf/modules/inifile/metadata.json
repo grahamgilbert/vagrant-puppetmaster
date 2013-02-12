@@ -1,0 +1,72 @@
+{
+  "license": "Apache",
+  "source": "git://github.com/cprice-puppet/puppetlabs-inifile.git",
+  "types": [
+    {
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "value",
+          "doc": "The value of the setting to be defined."
+        }
+      ],
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "An arbitrary name used as the identity of the resource."
+        },
+        {
+          "name": "section",
+          "doc": "The name of the section in the ini file in which the setting should be defined."
+        },
+        {
+          "name": "setting",
+          "doc": "The name of the setting to be defined."
+        },
+        {
+          "name": "path",
+          "doc": "The ini file Puppet will ensure contains the specified setting."
+        },
+        {
+          "name": "key_val_separator",
+          "doc": "The separator string to use between each setting name and value. Defaults to \" = \", but you could use this to override e.g. whether or not the separator should include whitespace."
+        }
+      ],
+      "name": "ini_setting",
+      "providers": [
+        {
+          "name": "ruby",
+          "doc": ""
+        }
+      ],
+      "doc": ""
+    }
+  ],
+  "dependencies": [
+
+  ],
+  "summary": "Resource types for managing settings in INI files",
+  "description": "Resource types for managing settings in INI files",
+  "project_page": "https://github.com/cprice-puppet/puppetlabs-inifile",
+  "author": "Chris Price",
+  "name": "cprice404-inifile",
+  "checksums": {
+    "spec/spec_helper.rb": "7ac8d5b0b5a15c3cf9e730a8e416a7e9",
+    "lib/puppet/util/ini_file.rb": "57a8fb8c15c0973b75d3ac344b1e8a00",
+    "CHANGELOG": "8ef9a7631076e135f7daa73588f58e8e",
+    "spec/unit/puppet/util/ini_file_spec.rb": "d1fc8b3a91d598196e84dab7c0218425",
+    "lib/puppet/type/ini_setting.rb": "afcd3f28b946b08db1b48fb189e6d8cf",
+    "lib/puppet/util/external_iterator.rb": "69ad1eb930ca6d8d6b6faea343b4a22e",
+    "tests/ini_setting.pp": "ebe0459cc1bf68dba7c9d13f3984006c",
+    "README.markdown": "64084e513d908aa245e481a2e360eef2",
+    "spec/unit/puppet/provider/ini_setting/ruby_spec.rb": "990d726b9c3ac5fde69b3336d1f6a706",
+    "spec/unit/puppet/util/external_iterator_spec.rb": "35cc6e56e0064e496e9151dd778f751f",
+    "lib/puppet/provider/ini_setting/ruby.rb": "2a1c716e89c70356db877aa8bff3a942",
+    "lib/puppet/util/ini_file/section.rb": "501e535c51d31e3e6482b838ec521246",
+    "Modulefile": "c77497bf834acf7c171dbfec9ef4eb51"
+  },
+  "version": "0.9.0"
+}

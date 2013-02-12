@@ -1,0 +1,9 @@
+name 'dhoppe-hosts'
+version '0.0.4'
+
+author 'Dennis Hoppe'
+license 'GPLv2'
+project_page 'http://github.com/dhoppe/puppet-hosts'
+source 'git://github.com/dhoppe/puppet-hosts'
+summary 'Hosts Module'
+description 'Hosts Module for Debian, Ubuntu'
