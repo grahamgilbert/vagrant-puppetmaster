@@ -24,7 +24,7 @@ class dashboard::params {
   $passenger               = false
   $mysql_root_pw           = 'changemetoo'
   $rails_base_uri          = '/'
-  $rack_version            = '1.1.2'
+  $rack_version            = '1.1.6'
   $dashboard_workers_start = 'yes'
   $num_delayed_job_workers = '2'
 
