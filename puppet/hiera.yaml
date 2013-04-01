@@ -1,0 +1,10 @@
+---
+:hierarchy:
+    - %{::customer_name}/%{::customer_site}/%{::customer_build}
+    - %{::customer_name}/%{::customer_site}
+    - %{::customer_name}
+    - common
+:backends:
+    - yaml
+:yaml:
+    :datadir: '/etc/puppet/hieradata'

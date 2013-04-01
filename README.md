@@ -19,6 +19,8 @@ I wanted a full Puppet test environment that I could create and destroy easily. 
 <tr><th>Dashboard URL</th><td>http://192.168.33.10:3000</td></tr>
 <tr><th>Put your manifests in:</th><td>puppet/manifests</td></tr>
 <tr><th>Put your modules in:</th><td>puppet/modules</td></tr>
+<tr><th>If you are using Hiera edit:</th><td>puppet/hiera.yaml</td></tr>
+<tr><th>Put your Hiera data in:</th><td>puppet/hieradata</td></tr>
 </table>
 
 ##A bit more detail on what’s going on
