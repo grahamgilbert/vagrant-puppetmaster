@@ -9,7 +9,7 @@ node default{
       ensure  =>  latest,
     }
   
-  host { 'puppet.pebbleit.dev':
+  host { 'puppet.grahamgilbert.dev':
     ensure       => 'present',
     host_aliases => ['puppet'],
     ip           => '192.168.33.10',
@@ -19,7 +19,7 @@ node default{
   
   package {'puppetmaster':
     ensure  =>  latest,
-    require => Host['puppet.pebbleit.dev'],
+    require => Host['puppet.grahamgilbert.dev'],
   }
     
   # Configure puppetdb and its underlying database
