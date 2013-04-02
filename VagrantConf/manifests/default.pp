@@ -1,13 +1,6 @@
 #Quick Manifest to stand up a demo Puppet Master
-#include apt
 
-##we'll need php and the current version of the php file as well.
-##Need to install puppet dashboard and configure it
-node default{
-    
-    package {'libapache2-mod-php5':
-      ensure  =>  latest,
-    }
+node default {
   
   host { 'puppet.grahamgilbert.dev':
     ensure       => 'present',
