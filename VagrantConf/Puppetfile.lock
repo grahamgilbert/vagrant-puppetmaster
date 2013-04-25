@@ -1,0 +1,45 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    cprice404/inifile (0.9.0)
+    dhoppe/hosts (0.0.4)
+    puppetlabs/apache (0.6.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/apt (1.1.0)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/firewall (0.2.1)
+    puppetlabs/mysql (0.6.1)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/passenger (0.0.4)
+      puppetlabs/apache (>= 0.0.3)
+      puppetlabs/ruby (>= 0.0.1)
+    puppetlabs/postgresql (2.1.1)
+      puppetlabs/apt (< 2.0.0, >= 1.1.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/stdlib (< 4.0.0, >= 3.2.0)
+      ripienaar/concat (>= 0.2.0)
+    puppetlabs/puppetdb (1.2.1)
+      cprice404/inifile (>= 0.9.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/postgresql (~> 2)
+    puppetlabs/ruby (0.0.2)
+    puppetlabs/stdlib (3.2.0)
+    ripienaar/concat (0.2.0)
+
+GIT
+  remote: https://github.com/grahamgilbert/puppetlabs-dashboard.git
+  ref: master
+  sha: 283f12bf0b45e1f206381a8181e6b76b6e99920f
+  specs:
+    dashboard (0.0.4)
+      puppetlabs/apache (>= 0.0.4)
+      puppetlabs/mysql (>= 0.3.0)
+      puppetlabs/passenger (>= 0.0.2)
+
+DEPENDENCIES
+  dashboard (>= 0)
+  dhoppe/hosts (>= 0)
+  puppetlabs/postgresql (>= 0)
+  puppetlabs/puppetdb (>= 0)
+

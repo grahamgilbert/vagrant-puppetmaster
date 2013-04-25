@@ -1,4 +1,5 @@
-
+VagrantConf/.tmp
+VagrantConf/modules
 .DS_Store
 
 .vagrant

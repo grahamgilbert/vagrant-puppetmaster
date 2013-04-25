@@ -84,5 +84,4 @@ node default {
     mode => '0644',
     recurse => true,
   }
-    
 }
