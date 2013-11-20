@@ -9,6 +9,8 @@ This is a Vagrantfile for running a testing setup for Puppet. It includes a Pupp
 - Type in ``vagrant up`` to your terminal window
 - Profit
 
+If you get errors about PuppetDB not starting, issue a ``vagrant provision``.
+
 ##Why?
 
 I wanted a full Puppet test environment that I could create and destroy easily. Vagrant gives me that.
