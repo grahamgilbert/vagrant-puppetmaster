@@ -3,7 +3,12 @@
 
 Vagrant.configure("2") do |config|
   config.vm.define :master do |master_config|
-
+    # Supports local cache, don't wast bandwitdh
+    # vagrant plugin install vagrant-cachier
+    # https://github.com/fgrehm/vagrant-cachier 
+    if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.auto_detect = true
+    end
       # All Vagrant configuration is done here. The most common configuration
       # options are documented and commented below. For a complete reference,
       # please see the online documentation at vagrantup.com.
