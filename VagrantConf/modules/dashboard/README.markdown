@@ -25,6 +25,16 @@ To install the Puppet Dashboard and configure it with sane defaults, include the
 
 None of these parameters are required - if you neglect any of them their values will default back to those set in the dashboard::params subclass.
 
+# Don't install passenger
+
+You may want that puppet dashboard uses passenger, but install it by some other mean that using this module.
+In that case, simply add passenger_install => false to the class parameters.
+
+In that case, you will need to:
+
+* Install passenger module yourself
+* Setup apache modules yourself, especially, you need to be sure that passenger.load and passenger.conf exist in puppet.
+
 # Puppet Dashboard Face
 
 The Puppet Dashboard Face requires that the cloud provisioner version 1.0.0 is installed
