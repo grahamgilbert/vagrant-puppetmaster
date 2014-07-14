@@ -1,0 +1,48 @@
+2014-06-03 - Version 0.2.0
+
+Summary:
+
+This work adds the ability to manage the gemrc globally, as well as adds in
+Ubuntu 14.04 support.  There was a fair amount of under the hood changes to
+improve the module and it's testing.
+
+Features:
+- `ruby::gemrc`: A class to allow you to configure the global gemrc file.
+- `ruby::dev`: A class for configurating ruby development specific things. 
+- Rework the readme, tests, and rake tasks.
+- Remove augeas packages.
+- Add Ubuntu 14.04 support.
+
+Fixes:
+- Fix for selecting the right package name when using versions.
+- Ruby-switch is gone from Ubuntu 14.04 onwards.
+- Fixes to ruby-switch in general.
+
+
+
+2013-10-09 - Version 0.1.1
+
+Summary:
+
+Tiny fix to the metadata.json.
+
+Fixes:
+- metadata.json.
+
+2013-10-08 - Version 0.1.0
+
+Summary:
+
+Release an updated version of this. Highlights include OpenSUSE and general
+spring cleaning done by our wonderful community members!
+
+Features:
+- OpenSUSE support
+- Allow `rubygems_package` override.
+- Add gemhome fact.
+- Add ri package.
+
+Fixes:
+- Lint fixes.
+- Remove virtual irb package.
+- Update dev packages for Ubuntu/Debian

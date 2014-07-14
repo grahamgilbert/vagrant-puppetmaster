@@ -1,0 +1,47 @@
+* 2014-06-03 0.3.0
+
+Summary:
+
+The major change here is to use an updated 3.0.x release.
+
+Features:
+- Use the last version in the 3.0.x releases as the default.
+
+Fixes:
+- Fixed timeout when compiling passenger on 'slow' machines
+
+
+* 2013-11-20 0.2.0
+
+Summary:
+
+This release refactors the module fairly expensively, and adds Passenger 4
+support.
+
+Features:
+- Parameters in `passenger` class:
+ - `package_name`: Name of the passenger package.
+ - `package_ensure`: Ensure state of the passenger package.
+ - `package_provider`: Provider to use to install passenger.
+ - `passenger_root`: Root directory for passenger.
+
+
+* 2013-07-31 0.1.0
+
+Summary:
+
+Several changes over the last year to improve compatibility against
+modern distributions, improvements to make things more robust and
+some fixes for Puppet 3.
+
+Features:
+- Parameters in `passenger` class:
+ - `passenger_ruby`: Allows you to customize what ruby binary is used.
+
+Bugfixes:
+- Ubuntu compatibility fixes.
+- Debian 6+ compatibility fixes.
+- Fixes against newer puppetlabs-apache.
+- Properly qualify variables.
+- Restart apache if passenger configuration changes.
+- Don't try to load unless compilation stage was successful.

@@ -1,22 +1,53 @@
-require 'spec_helper'
-
 describe 'apache::mod::ssl', :type => :class do
-  describe 'when running on an unsupported OS' do
-    let(:facts) { {:operatingsystem => 'MagicUnicorn', :osfamily => 'Magic'} }
-    it { expect { should raise_error(Puppet::Error, "Unsupported operatingsystem:") } }
+  let :pre_condition do
+    'include apache'
+  end
+  context 'on an unsupported OS' do
+    let :facts do
+      {
+        :osfamily               => 'Magic',
+        :operatingsystemrelease => '0',
+        :concat_basedir         => '/dne',
+      }
+    end
+    it { expect { subject }.to raise_error(Puppet::Error, /Unsupported osfamily:/) }
   end
 
-  describe 'when running on redhat' do
-    let(:facts) { {:operatingsystem => 'redhat', :osfamily => 'redhat'} }
-    it { should include_class('apache::params') }
+  context 'on a RedHat OS' do
+    let :facts do
+      {
+        :osfamily               => 'RedHat',
+        :operatingsystemrelease => '6',
+        :concat_basedir         => '/dne',
+      }
+    end
+    it { should contain_class('apache::params') }
+    it { should contain_apache__mod('ssl') }
     it { should contain_package('mod_ssl') }
-    it { should contain_a2mod('ssl') }
   end
 
-  describe 'when running on debian' do
-    let(:facts) { {:operatingsystem => 'debian', :osfamily => 'debian'} }
-    it { should include_class('apache::params') }
+  context 'on a Debian OS' do
+    let :facts do
+      {
+        :osfamily               => 'Debian',
+        :operatingsystemrelease => '6',
+        :concat_basedir         => '/dne',
+      }
+    end
+    it { should contain_class('apache::params') }
+    it { should contain_apache__mod('ssl') }
     it { should_not contain_package('libapache2-mod-ssl') }
-    it { should contain_a2mod('ssl') }
+  end
+
+  context 'on a FreeBSD OS' do
+    let :facts do
+      {
+        :osfamily               => 'FreeBSD',
+        :operatingsystemrelease => '9',
+        :concat_basedir         => '/dne',
+      }
+    end
+    it { should contain_class('apache::params') }
+    it { should contain_apache__mod('ssl') }
   end
 end

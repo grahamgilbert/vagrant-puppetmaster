@@ -1,31 +1,10 @@
-# Class: puppetdb::master::puppetdb_conf
-#
-# This class manages the puppetdb.conf file for the puppet master.
-#
-# Parameters:
-#   ['server']          - The dns name or ip of the puppetdb server (defaults to localhost)
-#   ['port']            - The port that the puppetdb server is running on (defaults to 8081)
-#   ['puppet_confdir']  - The config directory of puppet (defaults to /etc/puppet)
-#
-# Actions:
-# - Configures the required puppetdb settings for the puppet master by managing
-#   the puppetdb.conf file.
-#
-# Requires:
-# - Inifile
-#
-# Sample Usage:
-#   class { 'puppetdb::master::puppetdb_conf':
-#       server => 'my.puppetdb.server'
-#   }
-#
-#
-# TODO: finish porting this to use params
-#
-class puppetdb::master::puppetdb_conf(
-  $server         = 'localhost',
-  $port           = '8081',
-  $puppet_confdir = $puppetdb::params::puppet_confdir,
+# Managed the puppetdb.conf file on the puppeet master. See README.md for more
+# details.
+class puppetdb::master::puppetdb_conf (
+  $server             = 'localhost',
+  $port               = '8081',
+  $soft_write_failure = $puppetdb::disable_ssl ? { true => true, default => false, },
+  $puppet_confdir     = $puppetdb::params::puppet_confdir,
 ) inherits puppetdb::params {
 
   Ini_setting {
@@ -34,13 +13,18 @@ class puppetdb::master::puppetdb_conf(
     path    => "${puppet_confdir}/puppetdb.conf",
   }
 
-  ini_setting {'puppetdbserver':
+  ini_setting { 'puppetdbserver':
     setting => 'server',
     value   => $server,
   }
 
-  ini_setting {'puppetdbport':
+  ini_setting { 'puppetdbport':
     setting => 'port',
     value   => $port,
+  }
+
+  ini_setting { 'soft_write_failure':
+    setting => 'soft_write_failure',
+    value   => $soft_write_failure,
   }
 }

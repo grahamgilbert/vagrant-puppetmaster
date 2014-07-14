@@ -1,6 +1,6 @@
-LoadModule passenger_module <%= gem_path %>/passenger-<%= passenger_version %>/ext/apache2/mod_passenger.so
-PassengerRoot <%= gem_path %>/passenger-<%= passenger_version %>
-PassengerRuby /usr/bin/ruby
+LoadModule passenger_module <%= @mod_passenger_location %>
+PassengerRoot <%= @passenger_root %>
+PassengerRuby <%= @passenger_ruby %>
 
 # you probably want to tune these settings
 PassengerHighPerformance on
@@ -8,4 +8,8 @@ PassengerMaxPoolSize 12
 PassengerPoolIdleTime 1500
 # PassengerMaxRequests 1000
 PassengerStatThrottleRate 120
+<% if @passenger_version =~ /^4\.\d+\.\d+/ -%>
+PassengerEnabled on
+<% else -%>
 RailsAutoDetect On
+<% end -%>

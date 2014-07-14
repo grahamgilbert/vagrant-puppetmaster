@@ -1,39 +1,10 @@
-# Class: puppetdb::server::jetty_ini
-#
-# This class manages puppetdb's `jetty.ini` file, which contains the configuration
-# for puppetdb's embedded web server.
-#
-# Parameters:
-#   ['listen_address']     - The address that the web server should bind to
-#                            for HTTP requests.  (defaults to `localhost`.)
-#   ['listen_port']        - The port on which the puppetdb web server should
-#                            accept HTTP requests (defaults to 8080).
-#   ['ssl_listen_address'] - The address that the web server should bind to
-#                            for HTTPS requests.  (defaults to `$::clientcert`.)
-#   ['ssl_listen_port']    - The port on which the puppetdb web server should
-#                            accept HTTPS requests.
-#   ['database_name']   - The name of the database instance to connect to.
-#                         (defaults to `puppetdb`; ignored for `embedded` db)
-#   ['confdir']         - The puppetdb configuration directory; defaults to
-#                         `/etc/puppetdb/conf.d`.
-#
-# Actions:
-# - Manages puppetdb's `jetty.ini` file
-#
-# Requires:
-# - Inifile
-#
-# Sample Usage:
-#   class { 'puppetdb::server::jetty_ini':
-#       ssl_listen_address      => 'my.https.interface.hostname',
-#       ssl_listen_port         => 8081,
-#   }
-#
+# PRIVATE CLASS - do not use directly
 class puppetdb::server::jetty_ini(
   $listen_address     = $puppetdb::params::listen_address,
-  $listen_port        = $puppetdb::params::listen_port,  
+  $listen_port        = $puppetdb::params::listen_port,
   $ssl_listen_address = $puppetdb::params::ssl_listen_address,
   $ssl_listen_port    = $puppetdb::params::ssl_listen_port,
+  $disable_ssl        = $puppetdb::params::disable_ssl,
   $confdir            = $puppetdb::params::confdir,
 ) inherits puppetdb::params {
 
@@ -57,12 +28,19 @@ class puppetdb::server::jetty_ini(
     value   => $listen_port,
   }
 
+  $ssl_setting_ensure = $disable_ssl ? {
+    true    => 'absent',
+    default => 'present',
+  }
+
   ini_setting {'puppetdb_sslhost':
+    ensure  => $ssl_setting_ensure,
     setting => 'ssl-host',
     value   => $ssl_listen_address,
   }
 
   ini_setting {'puppetdb_sslport':
+    ensure  => $ssl_setting_ensure,
     setting => 'ssl-port',
     value   => $ssl_listen_port,
   }

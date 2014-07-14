@@ -1,0 +1,22 @@
+{
+  "CHANGELOG": "9394bb8d506885448a75720af48848e5",
+  "Gemfile": "aba4d00d83671fab4f9d8c8289ba00f1",
+  "LICENSE": "4509849dc8e58abcb92d4e1faacb588b",
+  "Modulefile": "9df6c2077d0371b7f143a18d594cc980",
+  "README.md": "0d32ae2a95d9a380ebf4c3bea7e6acaa",
+  "Rakefile": "0428ea3759a4692c91604396c406a9c1",
+  "manifests/compile.pp": "dbd5b17a35181d227d306c310b4ee926",
+  "manifests/config.pp": "0afc9649d841d9fb4c471aaaab4bcfb9",
+  "manifests/init.pp": "16c503f2008baba3b20731d6dface077",
+  "manifests/install.pp": "eac2484a8a3606b6ca53e3ff58bb78e2",
+  "manifests/params.pp": "eefcb0e337ce71ecb812861bee42bb3f",
+  "spec/classes/passenger_spec.rb": "7e18ffaacabe932f2af294bea2569941",
+  "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+  "spec/spec_helper_system.rb": "9389463e478bfc517e3176efbb1121db",
+  "spec/system/basic_spec.rb": "428a3c3e140bb442ebf878a838dba83d",
+  "spec/system/class_spec.rb": "f461c73ed2d3e4305fdf8486fe8df16a",
+  "templates/passenger-conf.erb": "56f4e3052da62d6d86d0530780d32411",
+  "templates/passenger-enabled.erb": "c00ba3dc84a5676e70d0b8828ece50d3",
+  "templates/passenger-load.erb": "97e00ed94f9274112bddc224ae76bf64",
+  "tests/init.pp": "ed442a24364697ff755ec0399fb4a0a5"
+}

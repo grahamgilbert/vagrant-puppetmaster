@@ -23,6 +23,11 @@ Puppet::Type.newtype(:puppetdb_conn_validator) do
     desc 'The port that the puppetdb server should be listening on.'
   end
 
+  newparam(:use_ssl) do
+    desc 'Whether the connection will be attemped using https'
+    defaultto true
+  end
+
   newparam(:timeout) do
     desc 'The max number of seconds that the validator should wait before giving up and deciding that puppetdb is not running; defaults to 15 seconds.'
     defaultto 15

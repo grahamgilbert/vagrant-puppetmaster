@@ -1,24 +1,5 @@
-# Class: puppetdb::master::routes
-#
-# This class configures the puppet master to use puppetdb as the facts terminus.
-#
-# WARNING: the current implementation simply overwrites your routes.yaml file;
-#  if you have an existing routes.yaml file that you are using for other purposes,
-#  you should *not* use this.
-#
-# Parameters:
-#   ['puppet_confdir']  - The puppet config directory (defaults to /etc/puppet)
-#
-# Actions:
-# - Configures the puppet master to use puppetdb as a facts terminus by
-#   overwriting routes.yaml
-#
-# Sample Usage:
-#   class { 'puppetdb::master::routes':
-#       puppet_confdir => '/etc/puppet'
-#   }
-#
-#
+# Manages the routes configuration file on the master. See README.md for more
+# details.
 class puppetdb::master::routes(
   $puppet_confdir = $puppetdb::params::puppet_confdir,
 ) inherits puppetdb::params {
