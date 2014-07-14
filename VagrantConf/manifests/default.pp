@@ -25,9 +25,11 @@ node default {
   class { 'puppetdb::master::config': }
     
   class {'dashboard':
-    dashboard_site => $fqdn,
-    dashboard_port => '3000',
-    require        => Package["puppetmaster"],
+    dashboard_site    => $fqdn,
+    dashboard_port    => '3000',
+	passenger         => true,
+	passenger_install => true,
+    require           => Package["puppetmaster"],
   }
  
   ##we copy rather than symlinking as puppet will manage this
