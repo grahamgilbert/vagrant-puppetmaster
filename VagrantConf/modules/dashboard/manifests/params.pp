@@ -33,6 +33,7 @@ class dashboard::params {
       $dashboard_service      = ['puppet-dashboard','puppet-dashboard-workers']
       $dashboard_package      = 'puppet-dashboard'
       $dashboard_root         = '/usr/share/puppet-dashboard'
+      $dashboard_shell        = '/sbin/nologin'
     }
 
     'Debian': {
@@ -40,6 +41,7 @@ class dashboard::params {
       $dashboard_service         = 'puppet-dashboard'
       $dashboard_package         = 'puppet-dashboard'
       $dashboard_root            = '/usr/share/puppet-dashboard'
+      $dashboard_shell           = '/bin/false'
       $dashboard_workers_service = 'puppet-dashboard-workers'
       $dashboard_workers_config  = '/etc/default/puppet-dashboard-workers'
       $dashboard_num_workers     = '4'
