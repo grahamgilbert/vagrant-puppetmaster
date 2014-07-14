@@ -1,0 +1,3 @@
+Need to set a variable for /var/lib/mysql in the mysql module
+Do we need to set the hostname or data in Apache?
+Update puppet.conf if master == true? Something to get the report URL set.

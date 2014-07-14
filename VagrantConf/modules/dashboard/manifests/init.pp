@@ -1,3 +1,82 @@
+# Class: puppet::dashboard
+#
+# This class installs and configures parameters for Puppet Dashboard
+#
+# Parameters:
+#   [*dashboard_ensure*]
+#     - The value of the ensure parameter for the
+#       puppet-dashboard package
+#
+#   [*dashboard_user*]
+#     - Name of the puppet-dashboard database and
+#       system user
+#
+#   [*dashboard_group*]
+#     - Name of the puppet-dashboard group
+#
+#   [*dashbaord_password*]
+#     - Password for the puppet-dashboard database use
+#
+#   [*dashboard_db*]
+#     - The puppet-dashboard database name
+#
+#   [*dashboard_charset*]
+#     - Character set for the puppet-dashboard database
+#
+#   [*dashboard_site*]
+#     - The ServerName setting for Apache
+#
+#   [*dashboard_port*]
+#     - The port on which puppet-dashboard should run
+#
+#   [*mysql_root_pw*]
+#     - Password for root on MySQL
+#
+#   [*passenger*]
+#     - Boolean to determine whether Dashboard is to be
+#       used with Passenger
+#
+#   [*mysql_package_provider*]
+#     - The package provider to use when installing
+#       the ruby-mysql package
+#
+#   [*ruby_mysql_package*]
+#     - The package name for the ruby-mysql package
+#
+#   [*dashboard_config*]
+#     - The Dashboard configuration file
+#
+#   [*dashboard_root*]
+#     - The path to the Puppet Dashboard library
+#
+#   [*rack_version*]
+#     - The version of the rack gem to install
+#
+# Actions:
+#
+# Requires:
+# Class['mysql']
+# Class['mysql::ruby']
+# Class['mysql::server']
+# Apache::Vhost[$dashboard_site]
+#
+# Sample Usage:
+#   class {'dashboard':
+#     dashboard_ensure       => 'present',
+#     dashboard_user         => 'puppet-dbuser',
+#     dashboard_group        => 'puppet-dbgroup',
+#     dashboard_password     => 'changemme',
+#     dashboard_db           => 'dashboard_prod',
+#     dashboard_charset      => 'utf8',
+#     dashboard_site         => $fqdn,
+#     dashboard_port         => '8080',
+#     mysql_root_pw          => 'REALLY_change_me',
+#     passenger              => true,
+#   }
+#
+#  Note: SELinux on Redhat needs to be set separately to allow access to the
+#   puppet-dashboard.
+#
 class dashboard (
   $dashboard_ensure         = $dashboard::params::dashboard_ensure,
   $dashboard_user           = $dashboard::params::dashboard_user,
@@ -14,9 +93,7 @@ class dashboard (
   $ruby_mysql_package       = $dashboard::params::ruby_mysql_package,
   $dashboard_config         = $dashboard::params::dashboard_config,
   $dashboard_root           = $dashboard::params::dashboard_root,
-  $rack_version             = $dashboard::params::rack_version,
-  $dashboard_workers_start  = $dashboard::params::dashboard_workers_start,
-  $num_delayed_job_workers  = $dashboard::params::num_delayed_job_workers
+  $rack_version             = $dashboard::params::rack_version
 ) inherits dashboard::params {
 
   require mysql
@@ -36,7 +113,7 @@ class dashboard (
       dashboard_root   => $dashboard_root,
     }
   } else {
-      file { 'dashboard_config':
+    file { 'dashboard_config':
       ensure  => present,
       path    => $dashboard_config,
       content => template("dashboard/config.${::osfamily}.erb"),
@@ -50,34 +127,13 @@ class dashboard (
       ensure     => running,
       enable     => true,
       hasrestart => true,
-      subscribe  => [File['/etc/puppet-dashboard/database.yml'],File['/etc/puppet-dashboard/settings.yml']],
+      subscribe  => File['/etc/puppet-dashboard/database.yml'],
       require    => Exec['db-migrate']
     }
   }
 
-  file { 'dashboard_workers':
-    ensure => present,
-    path   => $dashboard_workers,
-    content => template("dashboard/config-dashboard-workers.erb"),
-    owner   => '0',
-    group   => '0',
-    mode    => '0644',
-    require => [ Package[$dashboard_package], User[$dashboard_user] ],
-  }
-
-
-  service { $dashboard_workers_service:
-    ensure     => running,
-    enable     => true,
-    hasstatus  => true,
-    hasrestart => true,
-    subscribe  => [File['/etc/puppet-dashboard/database.yml'],File['/etc/puppet-dashboard/settings.yml']],
-    require    => File['dashboard_workers']
-  }
-
   package { $dashboard_package:
-    #ensure  => $dashboard_version,
-    ensure => '1.2.21-1puppetlabs1',
+    ensure  => $dashboard_version,
     require => [ Package['rdoc'], Package['rack']],
   }
 
@@ -104,33 +160,16 @@ class dashboard (
     ensure       => directory,
     recurse      => true,
     recurselimit => '1',
-    mode          => "0777",
   }
 
   file {'/etc/puppet-dashboard/database.yml':
     ensure  => present,
     content => template('dashboard/database.yml.erb'),
   }
-  
-  file {'/etc/puppet-dashboard/settings.yml':
-    ensure  => present,
-    content => template('dashboard/settings.erb'),
-  }
 
   file { "${dashboard::params::dashboard_root}/config/database.yml":
     ensure => 'symlink',
     target => '/etc/puppet-dashboard/database.yml',
-  }
-  
-  file { "${dashboard::params::dashboard_root}/spool":
-    ensure => 'directory',
-    owner => $dashboard_user,
-    group => $dashboard_group,
-  }
-  
-  file { "${dashboard::params::dashboard_root}/config/settings.yml":
-    ensure => 'symlink',
-    target => '/etc/puppet-dashboard/settings.yml',
   }
 
   file { [ "${dashboard::params::dashboard_root}/log/production.log", "${dashboard::params::dashboard_root}/config/environment.rb" ]:
@@ -165,11 +204,9 @@ class dashboard (
       ensure     => 'present',
       comment    => 'Puppet Dashboard',
       gid        => $dashboard_group,
-      shell      => $operatingsystem ? {
-                    'Ubuntu' => '/bin/false',
-                    default  => '/sbin/nologin',
-                    },
+      shell      => '/sbin/nologin',
       managehome => true,
+      home       => "/home/${dashboard_user}",
   }
 
   group { $dashboard_group:

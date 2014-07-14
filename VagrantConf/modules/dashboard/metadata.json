@@ -1,0 +1,49 @@
+{
+  "checksums": {
+    "templates/database.yml.erb": "70e445f1ab59bef5378995534b5f63dd",
+    "README.markdown": "40786648ba2d274db76a1368728a72c1",
+    "tests/init.pp": "1712c9908d7a5b6fef683a293fc0c1ac",
+    "templates/logrotate.erb": "e6d5f93aef11d7d3f2432694601c2e3a",
+    "manifests/passenger.pp": "af5bf8db2cd177ce4bd14dcecb28285b",
+    "lib/puppet/face/dashboard.rb": "cf28320f6d4394cdfcb9419bc0c92fe4",
+    "spec/spec.opts": "e27aed91d33ecc4417f97ff0365ece35",
+    "lib/puppet/dashboard/classifier.rb": "8f4e190ad9c9614c5a16d702bf73a888",
+    "spec/spec_helper.rb": "7b92473b233eb579006846e469395abf",
+    "lib/puppet/application/dashboard.rb": "d98bf7f6525512eb78ecfdd76691cc17",
+    "TODO": "83a2a698459d070288963fb9f930752d",
+    "templates/config.RedHat.erb": "0a5a6c0a80f65daf4485c80e30cf7dc6",
+    "LICENSE": "1c3d056325bedcfadb0deb431fe1ba82",
+    "templates/passenger-vhost.erb": "94bfef1629f2d106145dcfc83f6acaa7",
+    "CHANGELOG": "234be94e531ed8276f9968e120112d7b",
+    "spec/unit/face/dashboard_spec.rb": "79044f25be47012d183673c78a6f060c",
+    "Modulefile": "2b8b535faa8146eafe949fe3bf0541ee",
+    "manifests/init.pp": "14f247523fdab7ba5c09fbaa36229957",
+    "templates/config.Debian.erb": "17708fc18cba71d0eab8c5506938764d",
+    "manifests/params.pp": "92f657a5bb66b05d2bc1c3a8299792af"
+  },
+  "project_page": "https://github.com/puppetlabs/puppetlabs-dashboard",
+  "types": [
+
+  ],
+  "description": "Module to configure the Puppet Dashboard that also includes a Puppet Face that can be use to interact with the Dashboard from the CLI",
+  "summary": "Puppet module for the Puppet Dashboard",
+  "source": "git://github.com/puppetlabs/puppetlabs-dashboard.git",
+  "dependencies": [
+    {
+      "version_requirement": ">= 0.3.0",
+      "name": "puppetlabs/mysql"
+    },
+    {
+      "version_requirement": ">= 0.0.4",
+      "name": "puppetlabs/apache"
+    },
+    {
+      "version_requirement": ">= 0.0.2",
+      "name": "puppetlabs/passenger"
+    }
+  ],
+  "author": "puppetlabs",
+  "version": "0.0.4",
+  "name": "puppetlabs-dashboard",
+  "license": "Apache 2.0"
+}
