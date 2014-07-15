@@ -27,4 +27,5 @@ echo "Installing r10k..."
 gem install r10k -y >/dev/null
 
 echo "Running r10k to fetch modules for puppet provisioner..."
-cd /vagrant/VagrantConf && r10k puppetfile install
+cp /vagrant/VagrantConf/Puppetfile .
+r10k puppetfile install

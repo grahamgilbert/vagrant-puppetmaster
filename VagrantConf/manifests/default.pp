@@ -27,8 +27,6 @@ node default {
   class {'dashboard':
     dashboard_site    => $fqdn,
     dashboard_port    => '3000',
-	passenger         => true,
-	passenger_install => true,
     require           => Package["puppetmaster"],
   }
  
