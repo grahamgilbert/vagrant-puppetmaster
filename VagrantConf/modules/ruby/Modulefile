@@ -1,8 +1,0 @@
-name 'puppetlabs-ruby'
-version '0.0.2'
-source  'https://github.com/puppetlabs/puppetlabs-ruby'
-author  'Puppet Labs'
-license 'Apache License 2.0'
-summary 'Puppet Labs Ruby Module'
-description 'Ruby Module for Puppet'
-project_page 'https://github.com/puppetlabs/puppetlabs-ruby'

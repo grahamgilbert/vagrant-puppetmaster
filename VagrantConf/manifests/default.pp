@@ -25,9 +25,9 @@ node default {
   class { 'puppetdb::master::config': }
     
   class {'dashboard':
-    dashboard_site => $fqdn,
-    dashboard_port => '3000',
-    require        => Package["puppetmaster"],
+    dashboard_site    => $fqdn,
+    dashboard_port    => '3000',
+    require           => Package["puppetmaster"],
   }
  
   ##we copy rather than symlinking as puppet will manage this
@@ -36,7 +36,7 @@ node default {
     owner => root,
     group => root,
     source => "/vagrant/puppet/puppet.conf",
-    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard'],Service['puppet-dashboard-workers']],
+    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard']],
     require => Package['puppetmaster'],
   }
     
@@ -45,7 +45,7 @@ node default {
     owner => root,
     group => root,
     source => "/vagrant/puppet/autosign.conf",
-    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard'],Service['puppet-dashboard-workers']],
+    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard']],
     require => Package['puppetmaster'],
   }
   
@@ -54,7 +54,7 @@ node default {
     owner => root,
     group => root,
     source => "/vagrant/puppet/auth.conf",
-    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard'],Service['puppet-dashboard-workers']],
+    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard']],
     require => Package['puppetmaster'],
   }
   
@@ -63,7 +63,7 @@ node default {
     owner => root,
     group => root,
     source => "/vagrant/puppet/fileserver.conf",
-    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard'],Service['puppet-dashboard-workers']],
+    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard']],
     require => Package['puppetmaster'],
   }
   
@@ -77,7 +77,7 @@ node default {
     owner => root,
     group => root,
     source => "/vagrant/puppet/hiera.yaml",
-    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard'],Service['puppet-dashboard-workers']],
+    notify  =>  [Service['puppetmaster'],Service['puppet-dashboard']],
   }
   
   file { '/etc/puppet/hieradata':
