@@ -27,6 +27,8 @@ node default {
   class {'dashboard':
     dashboard_site    => $fqdn,
     dashboard_port    => '3000',
+    dashboard_user    => 'puppetdbuser',
+    dashboard_group   => 'puppetdbgroup',
     require           => Package["puppetmaster"],
   }
  
