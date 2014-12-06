@@ -11,16 +11,16 @@ node default {
 
   
   package {'puppetmaster':
-    ensure  =>  latest,
+    ensure  => latest,
     require => Host['puppet.grahamgilbert.dev'],
   }
     
   # Configure puppetdb and its underlying database
   class { 'puppetdb': 
-    listen_address => '0.0.0.0',
-    require => Package['puppetmaster'],
+    listen_address    => '0.0.0.0',
+    require           => Package['puppetmaster'],
     database          => 'embedded',
-    puppetdb_version => latest,
+    puppetdb_version  => latest,
     }
   # Configure the puppet master to use puppetdb
   class { 'puppetdb::master::config': }
@@ -75,6 +75,7 @@ node default {
     recurse => true,
   }
   
+/*
   file { '/etc/puppet/hiera.yaml':
     ensure => link,
     owner => root,
@@ -82,7 +83,8 @@ node default {
     source => "/vagrant/puppet/hiera.yaml",
     notify  =>  [Service['puppetmaster'],Service['puppet-dashboard']],
   }
-  
+*/
+
   file { '/etc/puppet/hieradata':
     mode => '0644',
     recurse => true,
