@@ -18,7 +18,7 @@ mod 'puppetlabs/firewall'
 
 mod 'puppetlabs/inifile'
 
-mod 'puppetlabs/mysql'
+mod 'puppetlabs/mysql', '2.3.0'
 
 mod 'puppetlabs/passenger'
 
