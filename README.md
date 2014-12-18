@@ -41,6 +41,8 @@ Other tweaks have been made to the configuration to make it more suitable for te
 
 These should be locked down to trusted hosts if using these techniques in production.
 
+If you want to use Hiera, place your config in puppet/hieradata and uncomment the resource handling hiera.yaml in VagrantConf/manifests/default.pp, editing both as necessary.
+
 ###Puppet Dashboard
 
 The Dashboard can be accessed at [http://192.168.33.10:3000](http://192.168.33.10:3000). This also runs using webbrick, which makes it unsuitable for a large scale deployment.
