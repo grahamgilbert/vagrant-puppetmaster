@@ -1,6 +1,8 @@
 vagrant-puppetmaster
 ====================
 
+# I am looking for a new maintainer for this. I now use Docker for my test environments, so haven't used this for over a year. No further updates will be made by me.
+
 This is a Vagrantfile for running a testing setup for Puppet. It includes a Puppet Master, Puppet Dashboard and PuppetDB. No idea what Vagrant is?
 
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
