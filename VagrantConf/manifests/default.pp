@@ -19,6 +19,7 @@ node default {
   class { 'puppetdb': 
     listen_address => '0.0.0.0',
     require => Package['puppetmaster'],
+    database          => 'embedded',
     puppetdb_version => latest,
     }
   # Configure the puppet master to use puppetdb
