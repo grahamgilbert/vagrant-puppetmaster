@@ -13,11 +13,11 @@ This is a Vagrantfile for running a testing setup for Puppet. It includes a Pupp
 
 If you get errors about PuppetDB not starting, issue a ``vagrant provision``.
 
-##Why?
+## Why?
 
 I wanted a full Puppet test environment that I could create and destroy easily. Vagrant gives me that.
 
-##The headlines
+## The headlines
 <table>
 <tr><th>IP Address</th><td>192.168.33.10</td></tr>
 <tr><th>Dashboard URL</th><td>http://192.168.33.10:3000</td></tr>
@@ -27,8 +27,8 @@ I wanted a full Puppet test environment that I could create and destroy easily. 
 <tr><th>Put your Hiera data in:</th><td>puppet/hieradata</td></tr>
 </table>
 
-##A bit more detail on what’s going on
-###Puppet
+## A bit more detail on what’s going on
+### Puppet
 
 This will set up the latest version of Puppet running as a master using the built in webbrick server. This is fine for testing, but this (amongst other reasons outlined below) makes it unsuitable for use in production.
 
@@ -43,10 +43,10 @@ Other tweaks have been made to the configuration to make it more suitable for te
 
 These should be locked down to trusted hosts if using these techniques in production.
 
-###Puppet Dashboard
+### Puppet Dashboard
 
 The Dashboard can be accessed at [http://192.168.33.10:3000](http://192.168.33.10:3000). This also runs using webbrick, which makes it unsuitable for a large scale deployment.
 
-###PuppetDB
+### PuppetDB
 
 PuppetDB is configured and provides the inventory service in the Dashboard.
